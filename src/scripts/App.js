@@ -1,11 +1,8 @@
-import WebGLView from './webgl/WebGLView';
-import GUIView from './gui/GUIView';
+import WebGLView from "./webgl/WebGLView";
+import GUIView from "./gui/GUIView";
 
 export default class App {
-
-	constructor() {
-
-	}
+	constructor() {}
 
 	init() {
 		this.initWebGL();
@@ -17,7 +14,9 @@ export default class App {
 
 	initWebGL() {
 		this.webgl = new WebGLView(this);
-		document.querySelector('.container').appendChild(this.webgl.renderer.domElement);
+		document
+			.querySelector(".container")
+			.appendChild(this.webgl.renderer.domElement);
 	}
 
 	initGUI() {
@@ -27,11 +26,11 @@ export default class App {
 	addListeners() {
 		this.handlerAnimate = this.animate.bind(this);
 
-		window.addEventListener('resize', this.resize.bind(this));
-		window.addEventListener('keyup', this.keyup.bind(this));
-		
+		window.addEventListener("resize", this.resize.bind(this));
+		window.addEventListener("keyup", this.keyup.bind(this));
+
 		const el = this.webgl.renderer.domElement;
-		el.addEventListener('click', this.click.bind(this));
+		// el.addEventListener('click', this.click.bind(this));
 	}
 
 	animate() {
@@ -66,7 +65,9 @@ export default class App {
 
 	keyup(e) {
 		// g
-		if (e.keyCode == 71) { if (this.gui) this.gui.toggle(); }
+		if (e.keyCode == 71) {
+			if (this.gui) this.gui.toggle();
+		}
 	}
 
 	click(e) {
